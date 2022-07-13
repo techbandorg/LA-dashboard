@@ -3,6 +3,7 @@ import { Button } from '../theme';
 import { Content } from './styles';
 import { injected } from '../connectors';
 import { useWeb3React } from '@web3-react/core';
+import { stringTrim } from '../utils';
 
 
 const Header = () => {
@@ -48,7 +49,7 @@ const Header = () => {
         <Button onClick={walletConnect}>
           {active
             ? <>
-              <span>{account}</span>
+              <span>{stringTrim(account, 12)}</span>
               <span onClick={walletDisconnect} style={{backgroundColor: 'tomato', fontWeight: 'bold', padding: "5px", marginLeft: '15px',}}>X</span>
             </>
             : <>Connect wallet</>
