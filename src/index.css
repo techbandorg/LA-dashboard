@@ -1,6 +1,6 @@
 body {
   margin: 0;
-  min-height: 100vh;
+  background-color: #040b1c;
   scroll-behavior: smooth;
   text-rendering: optimizeSpeed;
   line-height: 1.5;
@@ -71,5 +71,6 @@ select {
 .app {
   max-width: 1440px;
   margin: 0 auto;
-  background-color: gray;
+  min-height: 100vh;
+  color: #fff;
 }
