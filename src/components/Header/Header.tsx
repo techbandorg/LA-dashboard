@@ -6,7 +6,7 @@ import { useWeb3React } from '@web3-react/core';
 import { stringTrim } from '../utils';
 
 
-const Header = () => {
+const Header:React.FC = () => {
   const {active, account, activate, deactivate } = useWeb3React()
 
   const walletConnect = async () => {

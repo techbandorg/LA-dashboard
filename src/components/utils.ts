@@ -1,3 +1,5 @@
+import AES from 'crypto-js/aes';
+import { enc } from 'crypto-js';
 
 export const stringTrim = (string: string | null | undefined, maxLength: number) => {
   if (!string) return string;
@@ -10,4 +12,18 @@ export const stringTrim = (string: string | null | undefined, maxLength: number)
   const leftStrip = Math.ceil(toRemove/2);
   const rightStrip = toRemove - leftStrip;
   return `${string.substring(0, midpoint - leftStrip)}...${string.substring(midpoint + rightStrip)}`
+}
+
+export const decryptUrlParams = () => {
+  // нижнее подчеркивание в ссылке, идентификатор части с зашифрованными данными
+  const decodedStr = decodeURIComponent(window.location.href.split('_*')[1]);
+  const rawStr = AES.decrypt(decodedStr, 'secretPassphrase').toString(enc.Utf8);
+
+  // форматирование зависит от вида зашифрованой строки
+  const replaceSpecial = `{${rawStr.replaceAll('&', ',').replaceAll('=', ':')}}`
+  const addQuotes = replaceSpecial.replace(/(\w+)/gm, (matchedStr) => {
+    return '"' + matchedStr + '"';
+  });
+
+  return JSON.parse(addQuotes)
 }
