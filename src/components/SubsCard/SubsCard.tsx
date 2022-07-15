@@ -10,7 +10,7 @@ const SubsCard:React.FC<SubsCardsProps> = ({card}) => {
   return (
     <Wrapper>
       <Content>
-        <Title>{title}</Title>
+        <Title fontSize={'22px'}>{title}</Title>
         <Text>NFT: {nft}</Text>
         <Button>View on scan</Button>
       </Content>

@@ -36,6 +36,7 @@ const Header:React.FC<HeaderProps> = ({setIsUserHasSubs}) => {
       try {
         await activate(injected)
         localStorage.setItem('isWalletConnected', 'true')
+        setIsUserHasSubs(true)
       } catch (e) {
         console.error(e)
       }

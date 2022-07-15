@@ -1,4 +1,4 @@
-export const subsCards = [
+export const subsInfo = [
   {
     title: 'Vegogo',
     nft: '831'
