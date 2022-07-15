@@ -18,7 +18,6 @@ const Main: React.FC<MainProps> = ({ isUserHasSubs }) => {
     if (window.location.href.includes('_*')) setIsLinked(true);
   }, []);
 
-
   return (
     <Wrapper>
       <Content>

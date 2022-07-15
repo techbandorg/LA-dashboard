@@ -35,8 +35,15 @@ const HeroSection:React.FC<HeroSectionProps> = ({active, isUserHasSubs, isLinked
           </>
         )
 
-        else return (
+        if (!isUserHasSubs) return (
           <>
+            <Title margin={'0 0 16px 0'}>Liquid access</Title>
+            <Text margin={'0 0 16px 0'} fontSize={'18px'}>You haven't any NFT</Text>
+          </>
+        )
+
+        else return (
+          <Container>
             <div>
               <Title margin={'0 0 16px 0'}>Liquid access</Title>
               <Text maxWidth={'600px'}>
@@ -50,7 +57,7 @@ const HeroSection:React.FC<HeroSectionProps> = ({active, isUserHasSubs, isLinked
             <ImgContainer>
               <Img src={nftMain} />
             </ImgContainer>
-          </>
+          </Container>
         )
       })()}
     </div>
