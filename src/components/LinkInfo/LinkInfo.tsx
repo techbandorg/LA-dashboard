@@ -8,7 +8,7 @@ const LinkInfo = () => {
   const [urlParams, setUrlParams] = useState<UrlParams>();
 
   useEffect(() => {
-    setUrlParams(decryptUrlParams());
+    // setUrlParams(decryptUrlParams());
   }, []);
 
   return (

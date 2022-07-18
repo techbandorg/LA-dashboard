@@ -5,7 +5,6 @@ import { Title, Link } from '../../theme';
 
 
 const SubsCard:React.FC<SubsCardsProps> = ({card}) => {
-  console.log(card);
   const { merchant } = card
 
   return (
