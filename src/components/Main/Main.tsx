@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React  from 'react';
 import { Wrapper, Content } from './styles';
 import { Text } from '../../theme';
 // @ts-ignore

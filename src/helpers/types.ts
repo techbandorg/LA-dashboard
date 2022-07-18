@@ -1,7 +1,6 @@
 export interface SubsCardsProps {
   card: {
-    title: string
-    nft: string
+    merchant: string
   }
 }
 

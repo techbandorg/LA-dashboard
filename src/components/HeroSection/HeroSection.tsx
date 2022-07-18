@@ -5,9 +5,12 @@ import { Container, Img, ImgContainer } from './styles';
 // @ts-ignore
 import nftMain from '../../assets/img/nft.jpg';
 import { HeroSectionProps } from '../../helpers/types';
+import { createUserSub } from '../../helpers/requests';
+import { useWeb3React } from '@web3-react/core';
 
 
 const HeroSection:React.FC<HeroSectionProps> = ({active}) => {
+  const { account } = useWeb3React()
   const [isLinked, setIsLinked] = useState(false);
 
   useEffect(() => {
@@ -22,10 +25,10 @@ const HeroSection:React.FC<HeroSectionProps> = ({active}) => {
           <>
             <Container>
               <Title margin={'0 0 16px 0'}>Liquid access</Title>
-              <LinkInfo />
+              {/*<LinkInfo />*/}
             </Container>
             <Text margin={'0 0 16px 0'} fontSize={'18px'}>Transform subscription to NFT</Text>
-            <Button padding={'6px 24px'}>Mint</Button>
+            <Button padding={'6px 24px'} onClick={() => createUserSub(account)}>Mint</Button>
           </>
         )
         else return (
