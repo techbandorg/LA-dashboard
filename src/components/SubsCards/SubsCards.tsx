@@ -6,13 +6,17 @@ import { getUserSubs } from '../../helpers/requests';
 import { useWeb3React } from '@web3-react/core';
 
 
-const SubsCards = () => {
+const SubsCards = ({isMintPending}:{isMintPending: boolean}) => {
   const { account } = useWeb3React();
   const [subsInfo, setSubsInfo] = useState([])
 
   useEffect(() => {
     if (account) getUserSubs(account).then(response => setSubsInfo(response))
   }, []);
+
+  useEffect(() => {
+    if (account) getUserSubs(account).then(response => setSubsInfo(response))
+  }, [isMintPending]);
 
   return (
     <Wrapper>

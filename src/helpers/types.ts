@@ -19,5 +19,6 @@ export interface UrlParams {
 }
 
 export interface HeroSectionProps {
-  active?: boolean
+  setIsMintPending: (b: boolean) => void
+  isMintPending: boolean
 }

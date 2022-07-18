@@ -9,7 +9,7 @@ import { createUserSub } from '../../helpers/requests';
 import { useWeb3React } from '@web3-react/core';
 
 
-const HeroSection:React.FC<HeroSectionProps> = ({active}) => {
+const HeroSection:React.FC<HeroSectionProps> = ({setIsMintPending, isMintPending}) => {
   const { account } = useWeb3React()
   const [isLinked, setIsLinked] = useState(false);
 
@@ -20,15 +20,20 @@ const HeroSection:React.FC<HeroSectionProps> = ({active}) => {
   return (
     <div>
       {(() => {
-        if (active && !isLinked) return <Title margin={'0 0 16px 0'}>Liquid access</Title>
-        if (active && isLinked) return (
+        if (account && !isLinked) return <Title margin={'0 0 16px 0'}>Liquid access</Title>
+        if (account && isLinked) return (
           <>
             <Container>
               <Title margin={'0 0 16px 0'}>Liquid access</Title>
               {/*<LinkInfo />*/}
             </Container>
             <Text margin={'0 0 16px 0'} fontSize={'18px'}>Transform subscription to NFT</Text>
-            <Button padding={'6px 24px'} onClick={() => createUserSub(account)}>Mint</Button>
+            <Button padding={'6px 24px'} onClick={() => createUserSub(account, setIsMintPending)}>
+              {isMintPending
+                ? 'Pending...'
+                : 'Mint'
+              }
+            </Button>
           </>
         )
         else return (

@@ -1,4 +1,4 @@
-import React  from 'react';
+import React, { useState } from 'react';
 import { Wrapper, Content } from './styles';
 import { Text } from '../../theme';
 // @ts-ignore
@@ -10,15 +10,16 @@ import HeroSection from '../HeroSection/HeroSection';
 
 
 const Main: React.FC<MainProps> = ({ isUserHasSubs }) => {
-  const { active } = useWeb3React();
+  const { account } = useWeb3React();
+  const [isMintPending, setIsMintPending] = useState(false)
 
   return (
     <Wrapper>
       <Content>
-        <HeroSection active={active}/>
+        <HeroSection setIsMintPending={setIsMintPending} isMintPending={isMintPending}/>
         {(() => {
-          if (active && isUserHasSubs) return <SubsCards/>
-          if (active && !isUserHasSubs) return <Text margin={'0 0 16px 0'} fontSize={'18px'}>You haven't any NFT</Text>
+          if (account && isUserHasSubs) return <SubsCards isMintPending={isMintPending}/>
+          if (account && !isUserHasSubs) return <Text margin={'0 0 16px 0'} fontSize={'18px'}>You haven't any NFT</Text>
         })()}
       </Content>
     </Wrapper>
