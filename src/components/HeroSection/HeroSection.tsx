@@ -1,11 +1,10 @@
 import React from 'react';
-import { Button, Text, Title } from '../theme';
+import { Button, Text, Title } from '../../theme';
 import LinkInfo from '../LinkInfo/LinkInfo';
 import { Container, Img, ImgContainer } from './styles';
 // @ts-ignore
 import nftMain from '../../assets/img/nft.jpg';
-import { HeroSectionProps } from '../types';
-
+import { HeroSectionProps } from '../../helpers/types';
 
 
 const HeroSection:React.FC<HeroSectionProps> = ({active, isUserHasSubs, isLinked}) => {
@@ -26,7 +25,7 @@ const HeroSection:React.FC<HeroSectionProps> = ({active, isUserHasSubs, isLinked
             <Button padding={'6px 24px'}>Mint</Button>
           </>
         )
-        
+
         if (active && !isUserHasSubs && isLinked) return (
           <>
             <Title margin={'0 0 16px 0'}>Liquid access</Title>

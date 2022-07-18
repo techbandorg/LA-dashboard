@@ -1,6 +1,6 @@
 import React from 'react';
-import { Text } from '../theme';
-import { subsInfo } from '../constants';
+import { Text } from '../../theme';
+import { subsInfo } from '../../helpers/constants';
 import SubsCard from '../SubsCard/SubsCard';
 import { Wrapper, CardsContainer } from './styles';
 

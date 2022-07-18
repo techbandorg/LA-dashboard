@@ -1,7 +1,7 @@
 import React from 'react';
 import { Wrapper, Content } from './styles';
-import { SubsCardsProps } from '../types';
-import { Title, Text, Button } from '../theme';
+import { SubsCardsProps } from '../../helpers/types';
+import { Title, Text, Button } from '../../theme';
 
 
 const SubsCard:React.FC<SubsCardsProps> = ({card}) => {

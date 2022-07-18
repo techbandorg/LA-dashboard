@@ -11,9 +11,13 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-:root {
-  
-}
+/*:root {*/
+/*  --text: #fff;*/
+/*  --secondary-text: #fff;*/
+/*  --btn-text: #fff;*/
+/*  --btn-bg: #fff;*/
+/*  --accent: #fff;*/
+/*}*/
 
 *,
 *::before,

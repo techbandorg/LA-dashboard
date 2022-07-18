@@ -1,12 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import { Wrapper, Content } from './styles';
-import { Title, Text, Button } from '../theme';
+import { Text } from '../../theme';
 // @ts-ignore
 import nftMain from '../../assets/img/nft.jpg';
-import { MainProps } from '../types';
+import { MainProps } from '../../helpers/types';
 import { useWeb3React } from '@web3-react/core';
 import SubsCards from '../SubsCards/SubsCards';
-import LinkInfo from '../LinkInfo/LinkInfo';
 import HeroSection from '../HeroSection/HeroSection';
 
 

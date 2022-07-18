@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
-import { decryptUrlParams } from '../utils';
-import { Text } from '../theme';
-import { UrlParams } from '../types';
+import { decryptUrlParams } from '../../helpers/utils';
+import { Text } from '../../theme';
+import { UrlParams } from '../../helpers/types';
 
 
 const LinkInfo = () => {
