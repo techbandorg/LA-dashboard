@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Button, Text, Title } from '../../theme';
 import LinkInfo from '../LinkInfo/LinkInfo';
 import { Container, Img, ImgContainer } from './styles';
@@ -7,15 +7,18 @@ import nftMain from '../../assets/img/nft.jpg';
 import { HeroSectionProps } from '../../helpers/types';
 
 
-const HeroSection:React.FC<HeroSectionProps> = ({active, isUserHasSubs, isLinked}) => {
+const HeroSection:React.FC<HeroSectionProps> = ({active}) => {
+  const [isLinked, setIsLinked] = useState(false);
+
+  useEffect(() => {
+    if (window.location.href.includes('_*')) setIsLinked(true);
+  }, []);
+
   return (
     <div>
       {(() => {
-        if ((active && !isUserHasSubs && !isLinked) || (active && isUserHasSubs && !isLinked)) return (
-          <Title margin={'0 0 16px 0'}>Liquid access</Title>
-        )
-
-        if (active && isUserHasSubs && isLinked) return (
+        if (active && !isLinked) return <Title margin={'0 0 16px 0'}>Liquid access</Title>
+        if (active && isLinked) return (
           <>
             <Container>
               <Title margin={'0 0 16px 0'}>Liquid access</Title>
@@ -25,15 +28,6 @@ const HeroSection:React.FC<HeroSectionProps> = ({active, isUserHasSubs, isLinked
             <Button padding={'6px 24px'}>Mint</Button>
           </>
         )
-
-        if (active && !isUserHasSubs && isLinked) return (
-          <>
-            <Title margin={'0 0 16px 0'}>Liquid access</Title>
-            <Text margin={'0 0 16px 0'} fontSize={'18px'}>Transform subscription to NFT</Text>
-            <Button padding={'6px 24px'}>Mint</Button>
-          </>
-        )
-
         else return (
           <Container>
             <div>

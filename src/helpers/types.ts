@@ -21,6 +21,4 @@ export interface UrlParams {
 
 export interface HeroSectionProps {
   active?: boolean
-  isUserHasSubs?: boolean
-  isLinked?: boolean
 }
