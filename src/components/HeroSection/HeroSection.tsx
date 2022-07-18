@@ -12,6 +12,10 @@ const HeroSection:React.FC<HeroSectionProps> = ({active, isUserHasSubs, isLinked
   return (
     <div>
       {(() => {
+        if ((active && !isUserHasSubs && !isLinked) || (active && isUserHasSubs && !isLinked)) return (
+          <Title margin={'0 0 16px 0'}>Liquid access</Title>
+        )
+
         if (active && isUserHasSubs && isLinked) return (
           <>
             <Container>
@@ -22,23 +26,12 @@ const HeroSection:React.FC<HeroSectionProps> = ({active, isUserHasSubs, isLinked
             <Button padding={'6px 24px'}>Mint</Button>
           </>
         )
-
-        if (active && isUserHasSubs && !isLinked) return (
-          <Title margin={'0 0 16px 0'}>Liquid access</Title>
-        )
-
+        
         if (active && !isUserHasSubs && isLinked) return (
           <>
             <Title margin={'0 0 16px 0'}>Liquid access</Title>
             <Text margin={'0 0 16px 0'} fontSize={'18px'}>Transform subscription to NFT</Text>
             <Button padding={'6px 24px'}>Mint</Button>
-          </>
-        )
-
-        if (!isUserHasSubs) return (
-          <>
-            <Title margin={'0 0 16px 0'}>Liquid access</Title>
-            <Text margin={'0 0 16px 0'} fontSize={'18px'}>You haven't any NFT</Text>
           </>
         )
 

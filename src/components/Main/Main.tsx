@@ -21,24 +21,14 @@ const Main: React.FC<MainProps> = ({ isUserHasSubs }) => {
   return (
     <Wrapper>
       <Content>
-          {(() => {
-            if (active && isUserHasSubs && isLinked) return (
-              <>
-                <HeroSection active={active} isUserHasSubs={isUserHasSubs} isLinked={isLinked}/>
-                <SubsCards/>
-              </>
-          )
-            if (active && isUserHasSubs && !isLinked) return (
-              <>
-                <HeroSection active={active} isUserHasSubs={isUserHasSubs} isLinked={isLinked}/>
-                <SubsCards/>
-              </>
-          )
-            if (active && !isUserHasSubs && isLinked) return (
-              <HeroSection active={active} isUserHasSubs={isUserHasSubs} isLinked={isLinked}/>
-            )
-            else return <HeroSection/>
-          })()}
+        <HeroSection active={active} isUserHasSubs={isUserHasSubs} isLinked={isLinked}/>
+
+        {(() => {
+          if (active && isUserHasSubs && isLinked) return <SubsCards/>
+          if (active && isUserHasSubs && !isLinked) return <SubsCards/>
+          if (active && !isUserHasSubs && !isLinked) return <Text margin={'0 0 16px 0'} fontSize={'18px'}>You haven't any NFT</Text>
+        })()}
+
       </Content>
     </Wrapper>
 )};
