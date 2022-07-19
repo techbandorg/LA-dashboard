@@ -24,3 +24,10 @@ export interface HeroSectionProps {
   isMintPending?: boolean
   setIsLinkChanged?: (b: boolean) => void
 }
+
+export interface CreateSubArgs {
+  account: string | null | undefined
+  setIsMintPending: (b: boolean) => void
+  setIsLinkChanged: (b: boolean) => void
+  setIsError: (b: boolean) => void
+}

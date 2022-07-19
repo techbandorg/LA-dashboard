@@ -3,11 +3,12 @@ import { Button, Text, Title } from '../../theme';
 import { HeroSectionProps } from '../../helpers/types';
 import { checkUserSub, createUserSub } from '../../helpers/requests';
 import { useWeb3React } from '@web3-react/core';
+import ErrorBanner from '../ErrorBanner/ErrorBanner';
 
 const MintSection:React.FC<HeroSectionProps> = ({ setIsMintPending, isMintPending, setIsLinkChanged}) => {
   const { account } = useWeb3React();
   const [subAccount, setSubAccount] = useState('');
-  const [isError, setIsError] = useState(false)
+  const [isError, setIsError] = useState(true)
 
   useEffect(() => {
     checkUserSub().then(response => setSubAccount(response[0]?.userAddress));
@@ -30,6 +31,7 @@ const MintSection:React.FC<HeroSectionProps> = ({ setIsMintPending, isMintPendin
           </Button>
         </>
       }
+      {isError && <ErrorBanner/>}
     </div>
   );
 };

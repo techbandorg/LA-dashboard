@@ -1,5 +1,6 @@
 import axios from 'axios';
 import { decryptUrlParams } from './utils';
+import { CreateSubArgs } from './types';
 
 export const getUserSubs = (account: string) => {
   return axios.get(`https://liqiudaccess-backend.herokuapp.com/api/mint-nft/user-nft/?userAddress=${account}`)
@@ -14,7 +15,8 @@ export const checkUserSub = () => {
   ).then(response => response.data)
 };
 
-export const createUserSub = (account: string | null | undefined, setIsMintPending: (b: boolean) => void, setIsLinkChanged: (b: boolean) => void) => {
+// @ts-ignore
+export const createUserSub = (account, setIsMintPending, setIsLinkChanged, setIsError) => {
   const options = Object.assign(decryptUrlParams(), {'userAddress': account});
   setIsMintPending(true)
 
@@ -28,6 +30,7 @@ export const createUserSub = (account: string | null | undefined, setIsMintPendi
       })
       .catch((error) => {
         // handle error
+        setIsError(true)
         console.log(error);
         console.log('validation error');
       })
