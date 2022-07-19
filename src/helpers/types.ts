@@ -20,6 +20,7 @@ export interface UrlParams {
 }
 
 export interface HeroSectionProps {
-  setIsMintPending: (b: boolean) => void
-  isMintPending: boolean
+  setIsMintPending?: (b: boolean) => void
+  isMintPending?: boolean
+  setIsLinkChanged?: (b: boolean) => void
 }

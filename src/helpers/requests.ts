@@ -14,14 +14,22 @@ export const checkUserSub = () => {
   ).then(response => response.data)
 };
 
-export const createUserSub = (account: string | null | undefined, setIsMintPending: (b: boolean) => void) => {
+export const createUserSub = (account: string | null | undefined, setIsMintPending: (b: boolean) => void, setIsLinkChanged: (b: boolean) => void) => {
   const options = Object.assign(decryptUrlParams(), {'userAddress': account});
   setIsMintPending(true)
 
   if (options) {
     return axios.post('https://liqiudaccess-backend.herokuapp.com/api/mint-nft/create', {...options})
       .then(response => {
+        console.log('mint success');
+        window.history.pushState({}, '', 'cards');
         setIsMintPending(false)
+        setIsLinkChanged(true)
+      })
+      .catch((error) => {
+        // handle error
+        console.log(error);
+        console.log('validation error');
       })
   }
 };
