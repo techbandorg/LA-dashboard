@@ -6,6 +6,14 @@ export const getUserSubs = (account: string) => {
     .then(response => response.data)
 };
 
+export const checkUserSub = () => {
+  const { merchant, userId, subscriptionId } = decryptUrlParams()
+  return axios.get(
+    `https://liqiudaccess-backend.herokuapp.com/api/mint-nft/user-nft/?userId=${userId}&subscriptionId=${subscriptionId}&merchant=${merchant}`
+    // `https://liqiudaccess-backend.herokuapp.com/api/mint-nft/user-nft/?userId=${73}&subscriptionId=${77}&merchant=${'test'}`
+  ).then(response => response.data)
+};
+
 export const createUserSub = (account: string | null | undefined, setIsMintPending: (b: boolean) => void) => {
   const options = Object.assign(decryptUrlParams(), {'userAddress': account});
   setIsMintPending(true)
