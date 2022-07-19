@@ -18,6 +18,7 @@ export const Button = styled.button<{background?: string, padding?: string, colo
 
 export const Link = styled.a<{background?: string, padding?: string, color?: string,}>`
   background-color: rebeccapurple;
+  text-decoration: none;
   color: #fff;
   padding: ${({padding}) => padding ?? '6px 12px'};;
   border: none;

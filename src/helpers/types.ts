@@ -1,6 +1,7 @@
 export interface SubsCardsProps {
   card: {
     merchant: string
+    transactionHash: string
   }
 }
 
