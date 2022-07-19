@@ -25,5 +25,14 @@ export const decryptUrlParams = () => {
     return '"' + matchedStr + '"';
   });
 
-  return JSON.parse(addQuotes)
+  const obj = JSON.parse(addQuotes)
+
+  Object.keys(obj).forEach(el => {
+    if (/\d/.test(obj[el])) {
+      obj[el] = parseInt(obj[el])
+    }
+  })
+
+  return obj
+  // return JSON.parse(addQuotes)
 }

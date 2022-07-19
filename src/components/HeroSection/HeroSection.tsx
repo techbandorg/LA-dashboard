@@ -1,40 +1,41 @@
-import React from 'react';
-import { Button, Text, Title } from '../theme';
+import React, { useEffect, useState } from 'react';
+import { Button, Text, Title } from '../../theme';
 import LinkInfo from '../LinkInfo/LinkInfo';
 import { Container, Img, ImgContainer } from './styles';
 // @ts-ignore
 import nftMain from '../../assets/img/nft.jpg';
-import { HeroSectionProps } from '../types';
+import { HeroSectionProps } from '../../helpers/types';
+import { createUserSub } from '../../helpers/requests';
+import { useWeb3React } from '@web3-react/core';
 
 
+const HeroSection:React.FC<HeroSectionProps> = ({setIsMintPending, isMintPending}) => {
+  const { account } = useWeb3React()
+  const [isLinked, setIsLinked] = useState(false);
 
-const HeroSection:React.FC<HeroSectionProps> = ({active, isUserHasSubs, isLinked}) => {
+  useEffect(() => {
+    if (window.location.href.includes('_*')) setIsLinked(true);
+  }, []);
+
   return (
     <div>
       {(() => {
-        if ((active && !isUserHasSubs && !isLinked) || (active && isUserHasSubs && !isLinked)) return (
-          <Title margin={'0 0 16px 0'}>Liquid access</Title>
-        )
-
-        if (active && isUserHasSubs && isLinked) return (
+        if (account && !isLinked) return <Title margin={'0 0 16px 0'}>Liquid access</Title>
+        if (account && isLinked) return (
           <>
             <Container>
               <Title margin={'0 0 16px 0'}>Liquid access</Title>
-              <LinkInfo />
+              {/*<LinkInfo />*/}
             </Container>
             <Text margin={'0 0 16px 0'} fontSize={'18px'}>Transform subscription to NFT</Text>
-            <Button padding={'6px 24px'}>Mint</Button>
+            <Button padding={'6px 24px'} onClick={() => createUserSub(account, setIsMintPending)}>
+              {isMintPending
+                ? 'Pending...'
+                : 'Mint'
+              }
+            </Button>
           </>
         )
-        
-        if (active && !isUserHasSubs && isLinked) return (
-          <>
-            <Title margin={'0 0 16px 0'}>Liquid access</Title>
-            <Text margin={'0 0 16px 0'} fontSize={'18px'}>Transform subscription to NFT</Text>
-            <Button padding={'6px 24px'}>Mint</Button>
-          </>
-        )
-
         else return (
           <Container>
             <div>

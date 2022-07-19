@@ -1,12 +1,12 @@
 import React, { useEffect } from 'react';
-import { Button } from '../theme';
+import { Button } from '../../theme';
 import { Logo, Wrapper } from './styles';
-import { injected } from '../connectors';
+import { injected } from '../../helpers/connectors';
 import { useWeb3React } from '@web3-react/core';
-import { stringTrim } from '../utils';
+import { stringTrim } from '../../helpers/utils';
 // @ts-ignore
 import {ReactComponent as WalletIcon} from '../../assets/icons/wallet.svg'
-import { HeaderProps } from '../types';
+import { HeaderProps } from '../../helpers/types';
 
 
 const Header:React.FC<HeaderProps> = ({setIsUserHasSubs}) => {

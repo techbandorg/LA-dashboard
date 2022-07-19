@@ -1,7 +1,7 @@
 export interface SubsCardsProps {
   card: {
-    title: string
-    nft: string
+    merchant: string
+    transactionHash: string
   }
 }
 
@@ -20,7 +20,6 @@ export interface UrlParams {
 }
 
 export interface HeroSectionProps {
-  active?: boolean
-  isUserHasSubs?: boolean
-  isLinked?: boolean
+  setIsMintPending: (b: boolean) => void
+  isMintPending: boolean
 }
