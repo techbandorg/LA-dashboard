@@ -33,17 +33,23 @@ const Main: React.FC = () => {
       <Content>
         {!account && <DefaultSection/>}
 
-        {(account && isLinked)
-          && <MintSection setIsMintPending={setIsMintPending} isMintPending={isMintPending} setIsLinkChanged={setLinkChanged}/>
-        }
+        {(() => {
+          if (account && isLinked) return <MintSection setIsMintPending={setIsMintPending} isMintPending={isMintPending} setIsLinkChanged={setLinkChanged}/>
+          if (account && subsInfo.length && !isLinked) return <SubsCards subsInfo={subsInfo}/>
+          if (account && !subsInfo.length && !isLinked) return <Text margin={'0 0 16px 0'} fontSize={'18px'}>You haven't any NFT</Text>
+        })()}
 
-        {(account && subsInfo.length && !isLinked)
-          && <SubsCards subsInfo={subsInfo}/>
-        }
+        {/*{(account && isLinked)*/}
+        {/*  && <MintSection setIsMintPending={setIsMintPending} isMintPending={isMintPending} setIsLinkChanged={setLinkChanged}/>*/}
+        {/*}*/}
 
-        {(account && !subsInfo.length && !isLinked)
-          && <Text margin={'0 0 16px 0'} fontSize={'18px'}>You haven't any NFT</Text>
-        }
+        {/*{(account && subsInfo.length)*/}
+        {/*  && <SubsCards subsInfo={subsInfo}/>*/}
+        {/*}*/}
+
+        {/*{(account && !subsInfo.length && !isLinked)*/}
+        {/*  && <Text margin={'0 0 16px 0'} fontSize={'18px'}>You haven't any NFT</Text>*/}
+        {/*}*/}
 
       </Content>
     </Wrapper>
