@@ -2,6 +2,7 @@ export interface SubsCardsProps {
   card: {
     merchant: string
     transactionHash: string
+    nftId: number
   }
 }
 
@@ -15,6 +16,7 @@ export interface MintSectionProps {
   setIsMintPending: (b: boolean) => void
   isMintPending: boolean
   setIsLinkChanged: (b: boolean) => void
+  setIsLinked: (b: boolean) => void
 }
 
 export interface CreateSubArgs {

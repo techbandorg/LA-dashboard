@@ -28,28 +28,25 @@ const Main: React.FC = () => {
     getUserSubs(account).then(response => setSubsInfo(response))
   }, [isLinkChanged]);
 
+  console.log();
+
   return (
     <Wrapper>
       <Content>
         {!account && <DefaultSection/>}
 
         {(() => {
-          if (account && isLinked) return <MintSection setIsMintPending={setIsMintPending} isMintPending={isMintPending} setIsLinkChanged={setLinkChanged}/>
+          if (account && isLinked) return (
+              <MintSection
+                setIsMintPending={setIsMintPending}
+                isMintPending={isMintPending}
+                setIsLinkChanged={setLinkChanged}
+                setIsLinked={setIsLinked}
+              />
+            )
           if (account && subsInfo.length && !isLinked) return <SubsCards subsInfo={subsInfo}/>
           if (account && !subsInfo.length && !isLinked) return <Text margin={'0 0 16px 0'} fontSize={'18px'}>You haven't any NFT</Text>
         })()}
-
-        {/*{(account && isLinked)*/}
-        {/*  && <MintSection setIsMintPending={setIsMintPending} isMintPending={isMintPending} setIsLinkChanged={setLinkChanged}/>*/}
-        {/*}*/}
-
-        {/*{(account && subsInfo.length)*/}
-        {/*  && <SubsCards subsInfo={subsInfo}/>*/}
-        {/*}*/}
-
-        {/*{(account && !subsInfo.length && !isLinked)*/}
-        {/*  && <Text margin={'0 0 16px 0'} fontSize={'18px'}>You haven't any NFT</Text>*/}
-        {/*}*/}
 
       </Content>
     </Wrapper>

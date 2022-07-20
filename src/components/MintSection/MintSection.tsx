@@ -5,7 +5,7 @@ import { checkUserSub, createUserSub } from '../../helpers/requests';
 import { useWeb3React } from '@web3-react/core';
 import ErrorBanner from '../ErrorBanner/ErrorBanner';
 
-const MintSection:React.FC<MintSectionProps> = ({ setIsMintPending, isMintPending, setIsLinkChanged}) => {
+const MintSection:React.FC<MintSectionProps> = ({ setIsMintPending, isMintPending, setIsLinkChanged, setIsLinked}) => {
   const { account } = useWeb3React();
   const [subAccount, setSubAccount] = useState('');
   const [isError, setIsError] = useState(false)
@@ -19,7 +19,14 @@ const MintSection:React.FC<MintSectionProps> = ({ setIsMintPending, isMintPendin
       <Title margin={'0 0 16px 0'}>Liquid access</Title>
       {/*<LinkInfo />*/}
       {account === subAccount
-        ? <Text margin={'0 0 16px 0'} fontSize={'18px'}>This subscription already transformed</Text>
+        ? <>
+            <Text margin={'0 0 16px 0'} fontSize={'18px'}>This subscription already transformed</Text>
+            <Button onClick={() => {
+              window.history.pushState({}, '', 'cards');
+              setIsLinked(false)
+            }
+            }>Go to dashboard</Button>
+          </>
         : <>
           <Text margin={'0 0 16px 0'} fontSize={'18px'}>Transform subscription to NFT</Text>
           <Button padding={'6px 24px'} onClick={() => createUserSub(account, setIsMintPending, setIsLinkChanged, setIsError)}>

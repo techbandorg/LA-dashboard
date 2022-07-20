@@ -11,7 +11,7 @@ const SubsCards = ({subsInfo}:{subsInfo: any}) => {
         Your nft subscriptions
       </Text>
       <CardsContainer>
-        {subsInfo.map((card: { merchant: string; transactionHash: string; }, index: number) => (
+        {subsInfo.map((card: { merchant: string; transactionHash: string; nftId: number; }, index: number) => (
           <SubsCard key={index} card={card}/>
         ))}
       </CardsContainer>
