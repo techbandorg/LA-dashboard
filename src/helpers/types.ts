@@ -5,24 +5,16 @@ export interface SubsCardsProps {
   }
 }
 
-export interface HeaderProps {
-  setIsUserHasSubs: (b: boolean) => void
-}
-
-export interface MainProps {
-  isUserHasSubs: boolean
-}
-
 export interface UrlParams {
   merchant: string
   userId: string
   subscriptionId: string
 }
 
-export interface HeroSectionProps {
-  setIsMintPending?: (b: boolean) => void
-  isMintPending?: boolean
-  setIsLinkChanged?: (b: boolean) => void
+export interface MintSectionProps {
+  setIsMintPending: (b: boolean) => void
+  isMintPending: boolean
+  setIsLinkChanged: (b: boolean) => void
 }
 
 export interface CreateSubArgs {

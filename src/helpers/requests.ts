@@ -29,10 +29,8 @@ export const createUserSub = (account, setIsMintPending, setIsLinkChanged, setIs
         setIsLinkChanged(true)
       })
       .catch((error) => {
-        // handle error
         setIsError(true)
-        console.log(error);
-        console.log('validation error');
+        setIsMintPending(false)
       })
   }
 };

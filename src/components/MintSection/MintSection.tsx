@@ -1,14 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import { Button, Text, Title } from '../../theme';
-import { HeroSectionProps } from '../../helpers/types';
+import { MintSectionProps } from '../../helpers/types';
 import { checkUserSub, createUserSub } from '../../helpers/requests';
 import { useWeb3React } from '@web3-react/core';
 import ErrorBanner from '../ErrorBanner/ErrorBanner';
 
-const MintSection:React.FC<HeroSectionProps> = ({ setIsMintPending, isMintPending, setIsLinkChanged}) => {
+const MintSection:React.FC<MintSectionProps> = ({ setIsMintPending, isMintPending, setIsLinkChanged}) => {
   const { account } = useWeb3React();
   const [subAccount, setSubAccount] = useState('');
-  const [isError, setIsError] = useState(true)
+  const [isError, setIsError] = useState(false)
 
   useEffect(() => {
     checkUserSub().then(response => setSubAccount(response[0]?.userAddress));
@@ -22,7 +22,6 @@ const MintSection:React.FC<HeroSectionProps> = ({ setIsMintPending, isMintPendin
         ? <Text margin={'0 0 16px 0'} fontSize={'18px'}>This subscription already transformed</Text>
         : <>
           <Text margin={'0 0 16px 0'} fontSize={'18px'}>Transform subscription to NFT</Text>
-          {/*@ts-ignore*/}
           <Button padding={'6px 24px'} onClick={() => createUserSub(account, setIsMintPending, setIsLinkChanged, setIsError)}>
             {isMintPending
               ? 'Pending...'
