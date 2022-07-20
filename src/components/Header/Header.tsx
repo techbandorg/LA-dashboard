@@ -6,17 +6,16 @@ import { useWeb3React } from '@web3-react/core';
 import { stringTrim } from '../../helpers/utils';
 // @ts-ignore
 import {ReactComponent as WalletIcon} from '../../assets/icons/wallet.svg'
-import { HeaderProps } from '../../helpers/types';
 
 
-const Header:React.FC<HeaderProps> = ({setIsUserHasSubs}) => {
+const Header:React.FC = () => {
   const {active, account, activate, deactivate } = useWeb3React()
 
   const walletConnect = async () => {
     try {
       await activate(injected)
       localStorage.setItem('isWalletConnected', 'true')
-      setIsUserHasSubs(true)
+      // setIsUserHasSubs(true)
     } catch (e: any) {
       console.error(e)
     }
@@ -36,7 +35,7 @@ const Header:React.FC<HeaderProps> = ({setIsUserHasSubs}) => {
       try {
         await activate(injected)
         localStorage.setItem('isWalletConnected', 'true')
-        setIsUserHasSubs(true)
+        // setIsUserHasSubs(true)
       } catch (e) {
         console.error(e)
       }

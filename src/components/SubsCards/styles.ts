@@ -9,4 +9,5 @@ export const CardsContainer = styled.div`
   align-items: center;
   gap: 50px;
   margin-top: 40px;
+  flex-wrap: wrap;
 `
