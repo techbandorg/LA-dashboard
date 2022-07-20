@@ -17,8 +17,7 @@ const MintSection:React.FC<MintSectionProps> = ({ setIsMintPending, isMintPendin
   return (
     <div>
       <Title margin={'0 0 16px 0'}>Liquid access</Title>
-      {/*<LinkInfo />*/}
-      {account === subAccount
+      {subAccount
         ? <>
             <Text margin={'0 0 16px 0'} fontSize={'18px'}>This subscription already transformed</Text>
             <Button onClick={() => {
