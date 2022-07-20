@@ -28,8 +28,6 @@ const Main: React.FC = () => {
     getUserSubs(account).then(response => setSubsInfo(response))
   }, [isLinkChanged]);
 
-  console.log();
-
   return (
     <Wrapper>
       <Content>
