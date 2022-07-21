@@ -1,7 +1,7 @@
 import React from 'react';
 import { Wrapper, Content } from './styles';
 import { SubsCardsProps } from '../../helpers/types';
-import { Title, Link, Text } from '../../theme';
+import { Title, Link, Paragraph } from '../../theme';
 
 
 const SubsCard:React.FC<SubsCardsProps> = ({card}) => {
@@ -11,7 +11,7 @@ const SubsCard:React.FC<SubsCardsProps> = ({card}) => {
     <Wrapper>
       <Content>
         <Title fontSize={'22px'}>{merchant}</Title>
-        <Text>NFT: {nftId}</Text>
+        <Paragraph>NFT: {nftId}</Paragraph>
         {/*<Link href={`https://mumbai.polygonscan.com/tx/${transactionHash}`} target='_blank'>View on scan</Link>*/}
         <Link href={`https://ropsten.etherscan.io/tx/${transactionHash}`} target='_blank'>View on scan</Link>
       </Content>

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { decryptUrlParams } from '../../helpers/utils';
-import { Text } from '../../theme';
+import { Paragraph } from '../../theme';
 import { UrlParams } from '../../helpers/types';
 
 
@@ -13,18 +13,18 @@ const LinkInfo = () => {
 
   return (
     <div>
-      <Text fontWeight={'600'} fontSize={'18px'}>
+      <Paragraph fontWeight={'600'} fontSize={'18px'}>
         Merchant name:
-        <Text color={'palegreen'}>{urlParams?.merchant}</Text>
-      </Text>
-      <Text fontWeight={'600'} fontSize={'18px'}>
+        <Paragraph color={'palegreen'}>{urlParams?.merchant}</Paragraph>
+      </Paragraph>
+      <Paragraph fontWeight={'600'} fontSize={'18px'}>
         User id:
-        <Text color={'palegreen'}>{urlParams?.userId}</Text>
-      </Text>
-      <Text fontWeight={'600'} fontSize={'18px'}>
+        <Paragraph color={'palegreen'}>{urlParams?.userId}</Paragraph>
+      </Paragraph>
+      <Paragraph fontWeight={'600'} fontSize={'18px'}>
         Subscription id:
-        <Text color={'palegreen'}>{urlParams?.subscriptionId}</Text>
-      </Text>
+        <Paragraph color={'palegreen'}>{urlParams?.subscriptionId}</Paragraph>
+      </Paragraph>
     </div>
   );
 };
