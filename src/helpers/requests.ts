@@ -16,7 +16,7 @@ export const checkUserSub = () => {
 };
 
 // @ts-ignore
-export const createUserSub = (account, setIsMintPending, setIsLinkChanged, setIsError) => {
+export const createUserSub = (account, setIsMintPending, setIsLinked, setIsError) => {
   const options = Object.assign(decryptUrlParams(), {'userAddress': account});
   setIsMintPending(true)
 
@@ -26,7 +26,7 @@ export const createUserSub = (account, setIsMintPending, setIsLinkChanged, setIs
         console.log('mint success');
         window.history.pushState({}, '', 'cards');
         setIsMintPending(false)
-        setIsLinkChanged(true)
+        setIsLinked(false)
       })
       .catch((error) => {
         setIsError(true)
