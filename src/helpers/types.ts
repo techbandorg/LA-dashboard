@@ -15,7 +15,6 @@ export interface UrlParams {
 export interface MintSectionProps {
   setIsMintPending: (b: boolean) => void
   isMintPending: boolean
-  setIsLinkChanged: (b: boolean) => void
   setIsLinked: (b: boolean) => void
 }
 

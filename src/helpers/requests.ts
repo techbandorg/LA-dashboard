@@ -16,17 +16,16 @@ export const checkUserSub = () => {
 };
 
 // @ts-ignore
-export const createUserSub = (account, setIsMintPending, setIsLinkChanged, setIsError) => {
+export const createUserSub = (account, setIsMintPending, setIsLinked, setIsError) => {
   const options = Object.assign(decryptUrlParams(), {'userAddress': account});
   setIsMintPending(true)
 
   if (options) {
     return axios.post('https://liqiudaccess-backend.herokuapp.com/api/mint-nft/create', {...options})
       .then(response => {
-        console.log('mint success');
         window.history.pushState({}, '', 'cards');
         setIsMintPending(false)
-        setIsLinkChanged(true)
+        setIsLinked(false)
       })
       .catch((error) => {
         setIsError(true)

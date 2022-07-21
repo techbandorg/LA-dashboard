@@ -14,7 +14,6 @@ const Main: React.FC = () => {
   const { account } = useWeb3React();
   const [isMintPending, setIsMintPending] = useState(false)
   const [isLinked, setIsLinked] = useState(false)
-  const [isLinkChanged, setLinkChanged] = useState(false)
   const [subsInfo, setSubsInfo] = useState([])
 
   useEffect(() => {
@@ -23,10 +22,8 @@ const Main: React.FC = () => {
   }, [account]);
 
   useEffect(() => {
-    if (!window.location.href.includes('_*')) setIsLinked(false)
-    // @ts-ignore
-    getUserSubs(account).then(response => setSubsInfo(response))
-  }, [isLinkChanged]);
+    if (account) getUserSubs(account).then(response => setSubsInfo(response))
+  }, [isLinked]);
 
   return (
     <Wrapper>
@@ -38,7 +35,6 @@ const Main: React.FC = () => {
               <MintSection
                 setIsMintPending={setIsMintPending}
                 isMintPending={isMintPending}
-                setIsLinkChanged={setLinkChanged}
                 setIsLinked={setIsLinked}
               />
             )
