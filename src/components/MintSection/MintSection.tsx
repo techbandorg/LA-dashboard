@@ -23,8 +23,9 @@ const MintSection:React.FC<MintSectionProps> = ({ setIsMintPending, isMintPendin
             <Button onClick={() => {
               window.history.pushState({}, '', 'cards');
               setIsLinked(false)
-            }
-            }>Go to dashboard</Button>
+            }}>
+              Go to dashboard
+            </Button>
           </>
         : <>
             {isMintPending

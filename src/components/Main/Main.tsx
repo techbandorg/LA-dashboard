@@ -22,9 +22,7 @@ const Main: React.FC = () => {
   }, [account]);
 
   useEffect(() => {
-    if (!window.location.href.includes('_*')) setIsLinked(false)
-    // @ts-ignore
-    getUserSubs(account).then(response => setSubsInfo(response))
+    if (account) getUserSubs(account).then(response => setSubsInfo(response))
   }, [isLinked]);
 
   return (
