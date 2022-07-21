@@ -12,7 +12,8 @@ const SubsCard:React.FC<SubsCardsProps> = ({card}) => {
       <Content>
         <Title fontSize={'22px'}>{merchant}</Title>
         <Text>NFT: {nftId}</Text>
-        <Link href={`https://mumbai.polygonscan.com/tx/${transactionHash}`} target='_blank'>View on scan</Link>
+        {/*<Link href={`https://mumbai.polygonscan.com/tx/${transactionHash}`} target='_blank'>View on scan</Link>*/}
+        <Link href={`https://ropsten.etherscan.io/tx/${transactionHash}`} target='_blank'>View on scan</Link>
       </Content>
     </Wrapper>
   );
