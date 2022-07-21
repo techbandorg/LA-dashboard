@@ -27,7 +27,6 @@ const MintSection:React.FC<MintSectionProps> = ({ setIsMintPending, isMintPendin
             }>Go to dashboard</Button>
           </>
         : <>
-          {/*<Paragraph margin={'0 0 16px 0'} fontSize={'18px'}>*/}
             {isMintPending
               ? <Paragraph margin={'0 0 16px 0'} fontSize={'18px'}>
                   This wallet <Text color={'palegreen'} fontWeight={'600'}>{account}</Text> will receive nft
@@ -36,14 +35,9 @@ const MintSection:React.FC<MintSectionProps> = ({ setIsMintPending, isMintPendin
                   Are you sure you want to receive the NFT at <Text color={'palegreen'} fontWeight={'600'}>{account}</Text> ?
                 </Paragraph>
             }
-
-          {/*</Paragraph>*/}
           <Paragraph margin={'0 0 16px 0'} fontSize={'18px'}>Transform subscription to NFT</Paragraph>
           <Button padding={'6px 24px'} onClick={() => createUserSub(account, setIsMintPending, setIsLinkChanged, setIsError)}>
-            {isMintPending
-              ? 'Pending...'
-              : 'Mint'
-            }
+            {isMintPending ? 'Pending...' : 'Mint'}
           </Button>
         </>
       }
