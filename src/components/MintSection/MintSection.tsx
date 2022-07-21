@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Button, Text, Title } from '../../theme';
+import { Button, Paragraph, Title, Text } from '../../theme';
 import { MintSectionProps } from '../../helpers/types';
 import { checkUserSub, createUserSub } from '../../helpers/requests';
 import { useWeb3React } from '@web3-react/core';
@@ -19,7 +19,7 @@ const MintSection:React.FC<MintSectionProps> = ({ setIsMintPending, isMintPendin
       <Title margin={'0 0 16px 0'}>Liquid access</Title>
       {subAccount
         ? <>
-            <Text margin={'0 0 16px 0'} fontSize={'18px'}>This subscription already transformed</Text>
+            <Paragraph margin={'0 0 16px 0'} fontSize={'18px'}>This subscription already transformed</Paragraph>
             <Button onClick={() => {
               window.history.pushState({}, '', 'cards');
               setIsLinked(false)
@@ -27,7 +27,18 @@ const MintSection:React.FC<MintSectionProps> = ({ setIsMintPending, isMintPendin
             }>Go to dashboard</Button>
           </>
         : <>
-          <Text margin={'0 0 16px 0'} fontSize={'18px'}>Transform subscription to NFT</Text>
+          {/*<Paragraph margin={'0 0 16px 0'} fontSize={'18px'}>*/}
+            {isMintPending
+              ? <Paragraph margin={'0 0 16px 0'} fontSize={'18px'}>
+                  This wallet <Text color={'palegreen'} fontWeight={'600'}>{account}</Text> will receive nft
+                </Paragraph>
+              : <Paragraph margin={'0 0 16px 0'} fontSize={'18px'}>
+                  Are you sure you want to receive the NFT at <Text color={'palegreen'} fontWeight={'600'}>{account}</Text> ?
+                </Paragraph>
+            }
+
+          {/*</Paragraph>*/}
+          <Paragraph margin={'0 0 16px 0'} fontSize={'18px'}>Transform subscription to NFT</Paragraph>
           <Button padding={'6px 24px'} onClick={() => createUserSub(account, setIsMintPending, setIsLinkChanged, setIsError)}>
             {isMintPending
               ? 'Pending...'

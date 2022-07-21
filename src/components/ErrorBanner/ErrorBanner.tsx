@@ -1,12 +1,12 @@
 import React from 'react';
 import { Wrapper, Content } from './styles';
-import { Text } from '../../theme'
+import { Paragraph } from '../../theme'
 
 const ErrorBanner = () => {
   return (
     <Wrapper>
       <Content>
-        <Text fontWeight={'700'} color={'crimson'}>Error:</Text>
+        <Paragraph fontWeight={'700'} color={'crimson'}>Error:</Paragraph>
         <span>Link is deprecated or subscription with this data exist</span>
       </Content>
     </Wrapper>

@@ -36,7 +36,15 @@ export const Title = styled.h2<{fontSize?: string, fontWeight?: string, margin?:
   font-weight: ${({fontWeight}) => fontWeight ?? '600'};
 `
 
-export const Text = styled.p<{fontSize?: string, fontWeight?: string, maxWidth?: string, color?: string, margin?: string}>`
+export const Paragraph = styled.p<{fontSize?: string, fontWeight?: string, maxWidth?: string, color?: string, margin?: string}>`
+  font-size: ${({fontSize}) => fontSize ?? '16px'};
+  font-weight: ${({fontWeight}) => fontWeight ?? '400'};
+  max-width: ${({maxWidth}) => maxWidth ?? 'none'};
+  color: ${({color}) => color ?? '#fff'};
+  margin: ${({margin}) => margin ?? '0'};
+`
+
+export const Text = styled.span<{fontSize?: string, fontWeight?: string, maxWidth?: string, color?: string, margin?: string}>`
   font-size: ${({fontSize}) => fontSize ?? '16px'};
   font-weight: ${({fontWeight}) => fontWeight ?? '400'};
   max-width: ${({maxWidth}) => maxWidth ?? 'none'};

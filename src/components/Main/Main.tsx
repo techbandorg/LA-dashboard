@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Wrapper, Content } from './styles';
-import { Text } from '../../theme';
+import { Paragraph } from '../../theme';
 // @ts-ignore
 import nftMain from '../../assets/img/nft.jpg';
 import { useWeb3React } from '@web3-react/core';
@@ -43,7 +43,7 @@ const Main: React.FC = () => {
               />
             )
           if (account && subsInfo.length && !isLinked) return <SubsCards subsInfo={subsInfo}/>
-          if (account && !subsInfo.length && !isLinked) return <Text margin={'0 0 16px 0'} fontSize={'18px'}>You haven't any NFT</Text>
+          if (account && !subsInfo.length && !isLinked) return <Paragraph margin={'0 0 16px 0'} fontSize={'18px'}>You haven't any NFT</Paragraph>
         })()}
 
       </Content>
