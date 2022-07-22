@@ -25,9 +25,17 @@ export interface CreateSubArgs {
   setIsError: (b: boolean) => void
 }
 
-export interface ModalProps {
-  text: string
+export interface MintModalProps {
+  text?: string
   account?: string
+  setIsMintModal: (b: boolean) => void
+  setIsError: (b: boolean) => void
+  setIsMintPending: (b: boolean) => void
+  setIsLinked: (b: boolean) => void
+}
+
+export interface ErrorModalProps {
+  setIsErrorModal: (b: boolean) => void
 }
 
 export interface BackdropProps {

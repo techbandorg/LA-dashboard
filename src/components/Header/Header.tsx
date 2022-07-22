@@ -4,7 +4,6 @@ import { Logo, Wrapper } from './styles';
 import { injected } from '../../helpers/connectors';
 import { useWeb3React } from '@web3-react/core';
 import { stringTrim } from '../../helpers/utils';
-// @ts-ignore
 import {ReactComponent as WalletIcon} from '../../assets/icons/wallet.svg'
 
 
@@ -51,7 +50,7 @@ const Header:React.FC = () => {
         <Button gap={'10px'} onClick={walletConnect}>
           {account
             ? <>
-              <WalletIcon width={'25px'} heigth={'25px'} fill={'#fff'}/>
+              <WalletIcon width={'25px'} height={'25px'} fill={'#fff'}/>
               <span>{stringTrim(account, 12)}</span>
             </>
             : <>Connect wallet</>
