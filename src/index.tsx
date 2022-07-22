@@ -5,6 +5,7 @@ import App from './App';
 import { Web3ReactProvider } from '@web3-react/core';
 import Web3 from 'web3';
 import { provider } from 'web3-core';
+import MetamaskProvider from './components/MetamaskProvider/MetamaskProvider';
 
 const getLibrary = (provider: provider) => {
   return new Web3(provider)
@@ -13,8 +14,11 @@ const getLibrary = (provider: provider) => {
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
+
 root.render(
   <Web3ReactProvider getLibrary={getLibrary}>
-    <App />
+    <MetamaskProvider>
+      <App />
+    </MetamaskProvider>
   </Web3ReactProvider>
-  );
+);

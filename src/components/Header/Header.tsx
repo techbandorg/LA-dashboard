@@ -19,31 +19,6 @@ const Header:React.FC = () => {
     }
   };
 
-  // const walletDisconnect = () => {
-  //   try {
-  //     deactivate()
-  //     localStorage.setItem('isWalletConnected', 'false')
-  //   } catch (e) {
-  //     console.error(e)
-  //   }
-  // };
-  //
-  const connectWalletOnPageLoad = async () => {
-    if (localStorage?.getItem('isWalletConnected') === 'true') {
-      try {
-        await activate(injected)
-        localStorage.setItem('isWalletConnected', 'true')
-        // setIsUserHasSubs(true)
-      } catch (e) {
-        console.error(e)
-      }
-    }
-  };
-
-  useEffect(() => {
-    connectWalletOnPageLoad()
-  }, []);
-
   return (
     <Wrapper>
         <Logo>LA DASHBOARD</Logo>
