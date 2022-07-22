@@ -2,12 +2,12 @@ import axios from 'axios';
 import { decryptUrlParams } from './utils';
 import { CreateSubArgs } from './types';
 
-export const getUserSubs = (account: string) => {
+export const getUserNfts = (account: string) => {
   return axios.get(`https://liqiudaccess-backend.herokuapp.com/api/mint-nft/user-nft/?userAddress=${account}`)
     .then(response => response.data)
 };
 
-export const checkUserSub = () => {
+export const checkNftExist = () => {
   const { merchant, userId, subscriptionId } = decryptUrlParams()
   return axios.get(
     `https://liqiudaccess-backend.herokuapp.com/api/mint-nft/user-nft/?userId=${userId}&subscriptionId=${subscriptionId}&merchant=${merchant}`
@@ -16,7 +16,7 @@ export const checkUserSub = () => {
 };
 
 // @ts-ignore
-export const createUserSub = (account, setIsMintPending, setIsLinked, setIsError) => {
+export const createUserNft = (account, setIsMintPending, setIsLinked, setIsError) => {
   const options = Object.assign(decryptUrlParams(), {'userAddress': account});
   setIsMintPending(true)
 

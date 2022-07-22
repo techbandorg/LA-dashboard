@@ -24,3 +24,13 @@ export interface CreateSubArgs {
   setIsLinkChanged: (b: boolean) => void
   setIsError: (b: boolean) => void
 }
+
+export interface ModalProps {
+  text: string
+  account?: string
+}
+
+export interface BackdropProps {
+  children: JSX.Element[] | JSX.Element,
+  setIsModalOpen: (b: boolean) => void
+}

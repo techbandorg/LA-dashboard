@@ -1,10 +1,10 @@
 import React from 'react';
 import { Paragraph } from '../../theme';
-import SubsCard from '../SubsCard/SubsCard';
+import NftCard from '../NftCard/NftCard';
 import { Wrapper, CardsContainer } from './styles';
 
 
-const SubsCards = ({subsInfo}:{subsInfo: any}) => {
+const NftCards = ({subsInfo}:{subsInfo: any}) => {
   return (
     <Wrapper>
       <Paragraph maxWidth={'600px'} fontSize={'18px'}>
@@ -12,11 +12,11 @@ const SubsCards = ({subsInfo}:{subsInfo: any}) => {
       </Paragraph>
       <CardsContainer>
         {subsInfo.map((card: { merchant: string; transactionHash: string; nftId: number; }, index: number) => (
-          <SubsCard key={index} card={card}/>
+          <NftCard key={index} card={card}/>
         ))}
       </CardsContainer>
     </Wrapper>
   );
 };
 
-export default SubsCards;
+export default NftCards;

@@ -4,7 +4,7 @@ import { SubsCardsProps } from '../../helpers/types';
 import { Title, Link, Paragraph } from '../../theme';
 
 
-const SubsCard:React.FC<SubsCardsProps> = ({card}) => {
+const NftCard:React.FC<SubsCardsProps> = ({card}) => {
   const { merchant, transactionHash, nftId } = card
 
   return (
@@ -19,4 +19,4 @@ const SubsCard:React.FC<SubsCardsProps> = ({card}) => {
   );
 };
 
-export default SubsCard;
+export default NftCard;

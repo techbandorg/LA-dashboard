@@ -9,27 +9,26 @@ import {ReactComponent as WalletIcon} from '../../assets/icons/wallet.svg'
 
 
 const Header:React.FC = () => {
-  const {active, account, activate, deactivate } = useWeb3React()
+  const { account, activate } = useWeb3React()
 
   const walletConnect = async () => {
     try {
       await activate(injected)
       localStorage.setItem('isWalletConnected', 'true')
-      // setIsUserHasSubs(true)
     } catch (e: any) {
       console.error(e)
     }
   };
 
-  const walletDisconnect = () => {
-    try {
-      deactivate()
-      localStorage.setItem('isWalletConnected', 'false')
-    } catch (e) {
-      console.error(e)
-    }
-  };
-
+  // const walletDisconnect = () => {
+  //   try {
+  //     deactivate()
+  //     localStorage.setItem('isWalletConnected', 'false')
+  //   } catch (e) {
+  //     console.error(e)
+  //   }
+  // };
+  //
   const connectWalletOnPageLoad = async () => {
     if (localStorage?.getItem('isWalletConnected') === 'true') {
       try {
@@ -50,11 +49,10 @@ const Header:React.FC = () => {
     <Wrapper>
         <Logo>LA DASHBOARD</Logo>
         <Button gap={'10px'} onClick={walletConnect}>
-          {active
+          {account
             ? <>
               <WalletIcon width={'25px'} heigth={'25px'} fill={'#fff'}/>
               <span>{stringTrim(account, 12)}</span>
-              {/*<span onClick={walletDisconnect} style={{backgroundColor: 'tomato', fontWeight: 'bold', padding: "5px", marginLeft: '15px',}}>X</span>*/}
             </>
             : <>Connect wallet</>
           }
