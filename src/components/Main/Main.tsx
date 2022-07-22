@@ -4,10 +4,10 @@ import { Paragraph } from '../../theme';
 // @ts-ignore
 import nftMain from '../../assets/img/nft.jpg';
 import { useWeb3React } from '@web3-react/core';
-import SubsCards from '../SubsCards/SubsCards';
+import NftCards from '../NftCards/NftCards';
 import MintSection from '../MintSection/MintSection';
 import DefaultSection from '../DefaultSection/DefaultSection';
-import { getUserSubs } from '../../helpers/requests';
+import { getUserNfts } from '../../helpers/requests';
 
 
 const Main: React.FC = () => {
@@ -18,11 +18,11 @@ const Main: React.FC = () => {
 
   useEffect(() => {
     if (window.location.href.includes('_*')) setIsLinked(true)
-    if (account) getUserSubs(account).then(response => setSubsInfo(response))
+    if (account) getUserNfts(account).then(response => setSubsInfo(response))
   }, [account]);
 
   useEffect(() => {
-    if (account) getUserSubs(account).then(response => setSubsInfo(response))
+    if (account) getUserNfts(account).then(response => setSubsInfo(response))
   }, [isLinked]);
 
   return (
@@ -38,7 +38,7 @@ const Main: React.FC = () => {
                 setIsLinked={setIsLinked}
               />
             )
-          if (account && subsInfo.length && !isLinked) return <SubsCards subsInfo={subsInfo}/>
+          if (account && subsInfo.length && !isLinked) return <NftCards subsInfo={subsInfo}/>
           if (account && !subsInfo.length && !isLinked) return <Paragraph margin={'0 0 16px 0'} fontSize={'18px'}>You haven't any NFT</Paragraph>
         })()}
 

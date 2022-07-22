@@ -1,9 +1,9 @@
 import styled from 'styled-components';
 
-export const Button = styled.button<{background?: string, padding?: string, color?: string, gap?: string}>`
-  background-color: rebeccapurple;
+export const Button = styled.button<{background?: string, padding?: string, color?: string, gap?: string, hover?: string}>`
+  background-color: ${({background}) => background ?? 'rebeccapurple'};
   color: #fff;
-  padding: ${({padding}) => padding ?? '6px 12px'};;
+  padding: ${({padding}) => padding ?? '6px 12px'};
   border: none;
   border-radius: 5px;
   cursor: pointer;
@@ -12,7 +12,7 @@ export const Button = styled.button<{background?: string, padding?: string, colo
   gap: ${({gap}) => gap ?? 0};
 
   &:hover {
-    background-color: #4e2877;
+    background-color: ${({hover}) => hover ?? '#4e2877'};
   }
 `
 
@@ -50,4 +50,12 @@ export const Text = styled.span<{fontSize?: string, fontWeight?: string, maxWidt
   max-width: ${({maxWidth}) => maxWidth ?? 'none'};
   color: ${({color}) => color ?? '#fff'};
   margin: ${({margin}) => margin ?? '0'};
+`
+
+export const Row = styled.div<{justify?: string, margin?: string, gap?: string}>`
+  display: flex;
+  align-items: center;
+  justify-content: ${({justify}) => justify ?? 'auto'} ;
+  margin: ${({margin}) => margin ?? '0'};
+  gap: ${({gap}) => gap ?? 0};
 `
