@@ -14,15 +14,15 @@ const Main: React.FC = () => {
   const { account } = useWeb3React();
   const [isMintPending, setIsMintPending] = useState(false)
   const [isLinked, setIsLinked] = useState(false)
-  const [subsInfo, setSubsInfo] = useState([])
+  const [NftsInfo, setNftsInfo] = useState([])
 
   useEffect(() => {
     if (window.location.href.includes('_*')) setIsLinked(true)
-    if (account) getUserNfts(account).then(response => setSubsInfo(response))
+    if (account) getUserNfts(account).then(response => setNftsInfo(response))
   }, [account]);
 
   useEffect(() => {
-    if (account) getUserNfts(account).then(response => setSubsInfo(response))
+    if (account) getUserNfts(account).then(response => setNftsInfo(response))
   }, [isLinked]);
 
   return (
@@ -38,8 +38,8 @@ const Main: React.FC = () => {
                 setIsLinked={setIsLinked}
               />
             )
-          if (account && subsInfo.length && !isLinked) return <NftCards subsInfo={subsInfo}/>
-          if (account && !subsInfo.length && !isLinked) return <Paragraph margin={'0 0 16px 0'} fontSize={'18px'}>You haven't any NFT</Paragraph>
+          if (account && NftsInfo.length && !isLinked) return <NftCards subsInfo={NftsInfo}/>
+          if (account && !NftsInfo.length && !isLinked) return <Paragraph margin={'0 0 16px 0'} fontSize={'18px'}>You haven't any NFT</Paragraph>
         })()}
 
       </Content>

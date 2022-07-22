@@ -24,7 +24,7 @@ function MetamaskProvider({ children }:{children: JSX.Element}) {
   if (loaded) {
     return children
   }
-  return <Loader/>
+  return <Loader stroke={'#fff'}/>
 }
 
 export default MetamaskProvider
