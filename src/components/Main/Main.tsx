@@ -5,8 +5,6 @@ import { Paragraph } from '../../theme';
 import nftMain from '../../assets/img/nft.jpg';
 import { useWeb3React } from '@web3-react/core';
 import NftCards from '../NftCards/NftCards';
-import MintSection from '../MintSection/MintSection';
-import DefaultSection from '../DefaultSection/DefaultSection';
 import { getUserNfts } from '../../helpers/requests';
 
 
@@ -28,20 +26,17 @@ const Main: React.FC = () => {
   return (
     <Wrapper>
       <Content>
-        {!account && <DefaultSection/>}
-
-        {(() => {
-          if (account && isLinked) return (
-              <MintSection
-                setIsMintPending={setIsMintPending}
-                isMintPending={isMintPending}
-                setIsLinked={setIsLinked}
-              />
-            )
-          if (account && subsInfo.length && !isLinked) return <NftCards subsInfo={subsInfo}/>
-          if (account && !subsInfo.length && !isLinked) return <Paragraph margin={'0 0 16px 0'} fontSize={'18px'}>You haven't any NFT</Paragraph>
-        })()}
-
+        {/*{(() => {*/}
+        {/*  if (account && isLinked) return (*/}
+        {/*      <MintSection*/}
+        {/*        setIsMintPending={setIsMintPending}*/}
+        {/*        isMintPending={isMintPending}*/}
+        {/*        setIsLinked={setIsLinked}*/}
+        {/*      />*/}
+        {/*    )*/}
+        {/*  if (account && subsInfo.length && !isLinked) return <NftCards subsInfo={subsInfo}/>*/}
+        {/*  if (account && !subsInfo.length && !isLinked) return <Paragraph margin={'0 0 16px 0'} fontSize={'18px'}>You haven't any NFT</Paragraph>*/}
+        {/*})()}*/}
       </Content>
     </Wrapper>
 )};

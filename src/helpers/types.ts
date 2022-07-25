@@ -12,9 +12,7 @@ export interface UrlParams {
   subscriptionId: string
 }
 
-export interface MintSectionProps {
-  setIsMintPending: (b: boolean) => void
-  isMintPending: boolean
+export interface MintPageProps {
   setIsLinked: (b: boolean) => void
 }
 
@@ -31,7 +29,6 @@ export interface MintModalProps {
   setIsMintModal: (b: boolean) => void
   setIsError: (b: boolean) => void
   setIsMintPending: (b: boolean) => void
-  setIsLinked: (b: boolean) => void
 }
 
 export interface ErrorModalProps {

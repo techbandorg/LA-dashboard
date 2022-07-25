@@ -16,16 +16,16 @@ export const checkNftExist = () => {
 };
 
 // @ts-ignore
-export const createUserNft = (account, setIsMintPending, setIsLinked, setIsError) => {
+export const createUserNft = (account, setIsMintPending, setIsError, navigate) => {
   const options = Object.assign(decryptUrlParams(), {'userAddress': account});
   setIsMintPending(true)
 
   if (options) {
     return axios.post('https://liqiudaccess-backend.herokuapp.com/api/mint-nft/create', {...options})
       .then(response => {
-        window.history.pushState({}, '', 'cards');
+        // window.history.pushState({}, '', 'cards');
+        navigate('/nfts', {replace: true})
         setIsMintPending(false)
-        setIsLinked(false)
       })
       .catch((error) => {
         setIsError(true)

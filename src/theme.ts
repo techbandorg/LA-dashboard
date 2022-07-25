@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 
 export const Button = styled.button<{background?: string, padding?: string, color?: string, gap?: string, hover?: string}>`
   background-color: ${({background}) => background ?? 'rebeccapurple'};
@@ -16,7 +17,22 @@ export const Button = styled.button<{background?: string, padding?: string, colo
   }
 `
 
-export const Link = styled.a<{background?: string, padding?: string, color?: string,}>`
+export const DefaultLink = styled.a<{background?: string, padding?: string, color?: string,}>`
+  background-color: rebeccapurple;
+  text-decoration: none;
+  color: #fff;
+  padding: ${({padding}) => padding ?? '6px 12px'};;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  text-align: center;
+
+  &:hover {
+    background-color: #4e2877;
+  }
+`
+
+export const RouterLink = styled(Link)<{background?: string, padding?: string, color?: string,}>`
   background-color: rebeccapurple;
   text-decoration: none;
   color: #fff;
