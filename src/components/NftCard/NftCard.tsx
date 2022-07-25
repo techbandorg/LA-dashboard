@@ -1,10 +1,10 @@
 import React from 'react';
 import { Wrapper, Content } from './styles';
-import { SubsCardsProps } from '../../helpers/types';
+import { NftsCardsProps } from '../../helpers/types';
 import { Title, DefaultLink, Paragraph } from '../../theme';
 
 
-const NftCard:React.FC<SubsCardsProps> = ({card}) => {
+const NftCard:React.FC<NftsCardsProps> = ({card}) => {
   const { merchant, transactionHash, nftId } = card
 
   return (

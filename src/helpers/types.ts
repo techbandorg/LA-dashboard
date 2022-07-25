@@ -1,7 +1,7 @@
-export interface SubsCardsProps {
+export interface NftsCardsProps {
   card: {
     merchant: string
-    transactionHash: string
+    transactionHash?: string
     nftId: number
   }
 }
