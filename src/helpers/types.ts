@@ -1,9 +1,10 @@
-export interface NftsCardsProps {
+export interface CardProps {
   card: {
     merchant: string
     transactionHash?: string
     nftId: number
   }
+  isMerchantCard?: boolean
 }
 
 export interface UrlParams {

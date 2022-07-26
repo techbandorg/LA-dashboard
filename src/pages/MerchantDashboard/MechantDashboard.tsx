@@ -5,6 +5,7 @@ import Card from '../../components/ui/Card/Card';
 
 
 const MerchantDashboard = () => {
+  const [isMerchantCard, setIsMerchantCard] = useState(true)
   const [nftsInfo, setNftsInfo] = useState([{
     merchant: 'TestMerchant',
     nftId: 555
@@ -18,7 +19,7 @@ const MerchantDashboard = () => {
         </Paragraph>
         <CardsContainer>
           {nftsInfo.map((card: { merchant: string; nftId: number; }, index: number) => (
-            <Card key={index} card={card} />
+            <Card key={index} card={card} isMerchantCard={isMerchantCard}/>
           ))}
         </CardsContainer>
     </Wrapper>
