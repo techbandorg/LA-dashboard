@@ -37,7 +37,8 @@ function App() {
       return  setActivatePath(location?.pathname)
     }
 
-    if (!location?.pathname.includes('mint') && !location?.pathname.includes('activate')) {
+    if (!location?.pathname.includes('mint') || !location?.pathname.includes('activate')) {
+      console.log('no link redirect to dash');
       return navigate('/dashboard')
     }
   };
