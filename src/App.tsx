@@ -30,20 +30,14 @@ function App() {
 
   const addRedirect = () => {
     if (location?.pathname.includes('mint')) {
-      console.log(location?.pathname);
-      console.log('in mint');
       return setMintPath(location?.pathname)
     }
 
     if (location?.pathname.includes('activate')) {
-      console.log(location?.pathname);
-      console.log('in activate');
       return setActivatePath(location?.pathname)
     }
 
     if (!location?.pathname.includes('mint') || !location?.pathname.includes('activate')) {
-      console.log(location?.pathname);
-      console.log('no link redirect to dash');
       return navigate('/dashboard')
     }
   };
