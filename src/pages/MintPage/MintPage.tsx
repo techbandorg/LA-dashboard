@@ -1,19 +1,20 @@
 import React, { useEffect, useState } from 'react';
-import { Button, Paragraph, Title, Text } from '../../theme';
-import { MintSectionProps } from '../../helpers/types';
+import { Button, Paragraph, Title, Text, RouterLink } from '../../theme';
 import { checkNftExist } from '../../helpers/requests';
 import { useWeb3React } from '@web3-react/core';
-import Backdrop from '../Backdrop/Backdrop';
-import { ErrorModal, MintModal } from '../Modals/Modals';
+import { ErrorModal, MintModal } from '../../components/Modals/Modals';
+import Backdrop from '../../components/Backdrop/Backdrop';
 
-const MintSection: React.FC<MintSectionProps> = ({ setIsMintPending, isMintPending, setIsLinked }) => {
+
+const MintPage: React.FC = () => {
   const { account } = useWeb3React();
+
   const [isNftExists, setIsNftExists] = useState(false);
   const [isErrorModal, setIsErrorModal] = useState(false);
-  const [isMintModal, setIsMintModal] = useState(false);
+  const [isMintModal, setIsMintModal] = useState(false)
+  const [isMintPending, setIsMintPending] = useState(false)
 
   useEffect(() => {
-    // checkNftExist().then(response => setSubAccount(response[0]?.userAddress));
     checkNftExist().then(response => response?.length && setIsNftExists(true));
   }, []);
 
@@ -23,12 +24,7 @@ const MintSection: React.FC<MintSectionProps> = ({ setIsMintPending, isMintPendi
       {isNftExists
         ? <>
           <Paragraph margin='0 0 16px 0' fontSize='18px'>This subscription already transformed</Paragraph>
-          <Button onClick={() => {
-            window.history.pushState({}, '', 'cards');
-            setIsLinked(false);
-          }}>
-            Go to dashboard
-          </Button>
+          <RouterLink to={'/dashboard'}>Go to dashboard</RouterLink>
         </>
         : <>
           <Paragraph margin='0 0 16px 0' fontSize='18px'>
@@ -48,14 +44,13 @@ const MintSection: React.FC<MintSectionProps> = ({ setIsMintPending, isMintPendi
           account={account}
           setIsMintModal={setIsMintModal}
           setIsMintPending={setIsMintPending}
-          setIsLinked={setIsLinked}
           setIsError={setIsErrorModal}
         />
       </Backdrop>
       }
       {isErrorModal &&
       <Backdrop setIsModalOpen={setIsErrorModal}>
-        <ErrorModal setIsErrorModal={setIsErrorModal} />
+        <ErrorModal setIsErrorModal={setIsErrorModal}/>
       </Backdrop>
       }
     </div>
@@ -63,4 +58,4 @@ const MintSection: React.FC<MintSectionProps> = ({ setIsMintPending, isMintPendi
 };
 
 
-export default MintSection;
+export default MintPage;
