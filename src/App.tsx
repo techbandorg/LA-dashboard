@@ -38,8 +38,6 @@ function App() {
     }
 
     if (!location?.pathname.includes('mint') || !location?.pathname.includes('activate')) {
-      console.log(location?.pathname);
-      console.log('no link redirect to dash');
       return navigate('/dashboard')
     }
   };
