@@ -1,6 +1,5 @@
 import axios from 'axios';
 import { decryptUrlParams } from './utils';
-import { CreateSubArgs } from './types';
 
 export const getUserNfts = (account: string) => {
   return axios.get(`https://liqiudaccess-backend.herokuapp.com/api/mint-nft/user-nft/?userAddress=${account}`)
