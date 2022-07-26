@@ -1,5 +1,5 @@
-import React, { useEffect } from 'react';
-import { Button } from '../../theme';
+import React from 'react';
+import { Button, RouterLink } from '../../theme';
 import { Logo, Wrapper } from './styles';
 import { injected } from '../../helpers/connectors';
 import { useWeb3React } from '@web3-react/core';
@@ -21,7 +21,11 @@ const Header:React.FC = () => {
 
   return (
     <Wrapper>
-        <Logo>LA DASHBOARD</Logo>
+        <RouterLink background={'transparent'} hover={'transparent'} to='/dashboard'>
+          <Logo>
+            LA dashboard
+          </Logo>
+        </RouterLink>
         <Button gap={'10px'} onClick={walletConnect}>
           {account
             ? <>

@@ -32,18 +32,18 @@ export const DefaultLink = styled.a<{background?: string, padding?: string, colo
   }
 `
 
-export const RouterLink = styled(Link)<{background?: string, padding?: string, color?: string,}>`
-  background-color: rebeccapurple;
+export const RouterLink = styled(Link)<{background?: string, padding?: string, color?: string, hover?: string}>`
+  background-color: ${({background}) => background ?? 'rebeccapurple'};
   text-decoration: none;
-  color: #fff;
-  padding: ${({padding}) => padding ?? '6px 12px'};;
+  color: ${({color}) => color ?? '#fff'};
+  padding: ${({padding}) => padding ?? '6px 12px'};
   border: none;
   border-radius: 5px;
   cursor: pointer;
   text-align: center;
 
   &:hover {
-    background-color: #4e2877;
+    background-color: ${({hover}) => hover ?? '#4e2877'};
   }
 `
 

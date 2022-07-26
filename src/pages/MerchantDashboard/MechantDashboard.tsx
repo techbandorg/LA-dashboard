@@ -5,7 +5,7 @@ import NftCard from '../../components/NftCard/NftCard';
 import { useWeb3React } from '@web3-react/core';
 
 
-const MerchantNftsPage = () => {
+const MerchantDashboard = () => {
   const { account } = useWeb3React();
   const [nftsInfo, setNftsInfo] = useState([{
     merchant: 'TestMerchant',
@@ -27,4 +27,4 @@ const MerchantNftsPage = () => {
   );
 };
 
-export default MerchantNftsPage;
+export default MerchantDashboard;

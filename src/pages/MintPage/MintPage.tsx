@@ -24,7 +24,7 @@ const MintPage: React.FC = () => {
       {isNftExists
         ? <>
           <Paragraph margin='0 0 16px 0' fontSize='18px'>This subscription already transformed</Paragraph>
-          <RouterLink to={'/nfts'}>Go to dashboard</RouterLink>
+          <RouterLink to={'/dashboard'}>Go to dashboard</RouterLink>
         </>
         : <>
           <Paragraph margin='0 0 16px 0' fontSize='18px'>

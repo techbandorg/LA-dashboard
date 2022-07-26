@@ -23,7 +23,7 @@ export const createUserNft = (account, setIsMintPending, setIsError, navigate) =
     return axios.post('https://liqiudaccess-backend.herokuapp.com/api/mint-nft/create', {...options})
       .then(response => {
         // window.history.pushState({}, '', 'cards');
-        navigate('/nfts', {replace: true})
+        navigate('/dashboard', {replace: true})
         setIsMintPending(false)
       })
       .catch((error) => {

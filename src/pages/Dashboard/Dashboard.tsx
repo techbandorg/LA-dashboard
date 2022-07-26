@@ -6,7 +6,7 @@ import { getUserNfts } from '../../helpers/requests';
 import { useWeb3React } from '@web3-react/core';
 
 
-const NftsPage = () => {
+const Dashboard = () => {
   const { account } = useWeb3React();
   const [nftsInfo, setNftsInfo] = useState([]);
 
@@ -35,4 +35,4 @@ const NftsPage = () => {
   );
 };
 
-export default NftsPage;
+export default Dashboard;
