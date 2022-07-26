@@ -10,7 +10,7 @@ const MintSection: React.FC<MintSectionProps> = ({ setIsMintPending, isMintPendi
   const { account } = useWeb3React();
   const [isNftExists, setIsNftExists] = useState(false);
   const [isErrorModal, setIsErrorModal] = useState(false);
-  const [isMintModal, setIsMintModal] = useState(false)
+  const [isMintModal, setIsMintModal] = useState(false);
 
   useEffect(() => {
     // checkNftExist().then(response => setSubAccount(response[0]?.userAddress));
@@ -42,25 +42,25 @@ const MintSection: React.FC<MintSectionProps> = ({ setIsMintPending, isMintPendi
         </>
       }
       {isMintModal
-        && <Backdrop setIsModalOpen={setIsMintModal}>
-          <MintModal
-            /*@ts-ignore*/
-            account={account}
-            setIsMintModal={setIsMintModal}
-            setIsMintPending={setIsMintPending}
-            setIsLinked={setIsLinked}
-            setIsError={setIsErrorModal}
-          />
-        </Backdrop>
+      && <Backdrop setIsModalOpen={setIsMintModal}>
+        <MintModal
+          /*@ts-ignore*/
+          account={account}
+          setIsMintModal={setIsMintModal}
+          setIsMintPending={setIsMintPending}
+          setIsLinked={setIsLinked}
+          setIsError={setIsErrorModal}
+        />
+      </Backdrop>
       }
       {isErrorModal &&
-        <Backdrop setIsModalOpen={setIsErrorModal}>
-          <ErrorModal setIsErrorModal={setIsErrorModal}/>
-        </Backdrop>
+      <Backdrop setIsModalOpen={setIsErrorModal}>
+        <ErrorModal setIsErrorModal={setIsErrorModal} />
+      </Backdrop>
       }
     </div>
-  )
-}
+  );
+};
 
 
 export default MintSection;
