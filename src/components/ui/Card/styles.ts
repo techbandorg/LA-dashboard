@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
-export const Wrapper = styled.div`
-  background-color: #251666;
+export const Wrapper = styled.div<{background?: string}>`
+  background-color: ${({background}) => background ?? '#251666'};
   border-radius: 15px;
   width: 250px;
 `
