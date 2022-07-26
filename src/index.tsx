@@ -5,7 +5,7 @@ import App from './App';
 import { Web3ReactProvider } from '@web3-react/core';
 import Web3 from 'web3';
 import { provider } from 'web3-core';
-import MetamaskProvider from './components/MetamaskProvider/MetamaskProvider';
+import MetamaskProvider from './components/logic/MetamaskProvider/MetamaskProvider';
 import { BrowserRouter } from 'react-router-dom';
 
 const getLibrary = (provider: provider) => {

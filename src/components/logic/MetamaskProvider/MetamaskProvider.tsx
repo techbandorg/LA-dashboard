@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
-import { injected } from '../../helpers/connectors';
+import { injected } from '../../../helpers/connectors';
 import { useWeb3React } from '@web3-react/core'
-import Loader from '../Loader/Loader';
+import Loader from '../../ui/Loader/Loader';
 
 function MetamaskProvider({ children }:{children: JSX.Element}) {
   const { active: networkActive, error: networkError, activate: activateNetwork } = useWeb3React()
