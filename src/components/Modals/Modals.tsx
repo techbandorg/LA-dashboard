@@ -3,9 +3,12 @@ import { Wrapper, Content, CrossIcon } from './styles';
 import { Button, Paragraph, Row, Text } from '../../theme';
 import { ErrorModalProps, MintModalProps } from '../../helpers/types';
 import { createUserNft } from '../../helpers/requests';
+import { useNavigate } from 'react-router-dom';
 
 
-export const MintModal:React.FC<MintModalProps> = ({account, setIsMintModal, setIsMintPending, setIsLinked, setIsError}) => {
+export const MintModal:React.FC<MintModalProps> = ({account, setIsMintModal, setIsMintPending,  setIsError}) => {
+  const navigate = useNavigate()
+
   return (
     <Wrapper onClick={e => e.stopPropagation()}>
       <CrossIcon onClick={() => setIsMintModal(false)}/>
@@ -33,7 +36,7 @@ export const MintModal:React.FC<MintModalProps> = ({account, setIsMintModal, set
             padding={'6px 42px'}
             onClick={() => {
               setIsMintModal(false)
-              createUserNft(account, setIsMintPending, setIsLinked, setIsError)
+              createUserNft(account, setIsMintPending, setIsError, navigate)
             }}
           >
             Receive

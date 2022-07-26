@@ -79,3 +79,7 @@ select {
   color: #fff;
   padding: 1em;
 }
+
+.content {
+  margin-top: 50px;
+}

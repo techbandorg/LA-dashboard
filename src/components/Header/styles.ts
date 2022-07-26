@@ -10,4 +10,5 @@ export const Wrapper = styled.header`
 export const Logo = styled.span`
   font-size: 22px;
   font-weight: bold;
+  color: #fff;
 `
