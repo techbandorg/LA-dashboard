@@ -1,10 +1,10 @@
 import React from 'react';
-import { Button, RouterLink } from '../../theme';
+import { Button, RouterLink } from '../../../theme';
 import { Logo, Wrapper } from './styles';
-import { injected } from '../../helpers/connectors';
+import { injected } from '../../../helpers/connectors';
 import { useWeb3React } from '@web3-react/core';
-import { stringTrim } from '../../helpers/utils';
-import {ReactComponent as WalletIcon} from '../../assets/icons/wallet.svg'
+import { stringTrim } from '../../../helpers/utils';
+import {ReactComponent as WalletIcon} from '../../../assets/icons/wallet.svg'
 
 
 const Header:React.FC = () => {

@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import {ReactComponent as Cross} from '../../assets/icons/cross.svg'
+import {ReactComponent as Cross} from '../../../assets/icons/cross.svg'
 
 export const Wrapper = styled.div<{border?: string, background?: string}>`
   background-color: ${({background}) => background ?? '#251666'};

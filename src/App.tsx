@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Routes, Route, useNavigate, useLocation } from 'react-router-dom';
 import { useWeb3React } from '@web3-react/core';
-import Header from './components/Header/Header';
+import Header from './components/ui/Header/Header';
 import HomePage from './pages/HomePage/HomePage';
 import MintPage from './pages/MintPage/MintPage';
 import Dashboard from './pages/Dashboard/Dashboard';
@@ -30,11 +30,11 @@ function App() {
 
   const addRedirect = () => {
     if (location?.pathname.includes('mint')) {
-      return  setMintPath(location?.pathname)
+      return setMintPath(location?.pathname)
     }
 
     if (location?.pathname.includes('activate')) {
-      return  setActivatePath(location?.pathname)
+      return setActivatePath(location?.pathname)
     }
 
     if (!location?.pathname.includes('mint') || !location?.pathname.includes('activate')) {

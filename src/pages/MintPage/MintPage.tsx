@@ -2,8 +2,8 @@ import React, { useEffect, useState } from 'react';
 import { Button, Paragraph, Title, Text, RouterLink } from '../../theme';
 import { checkNftExist } from '../../helpers/requests';
 import { useWeb3React } from '@web3-react/core';
-import { ErrorModal, MintModal } from '../../components/Modals/Modals';
-import Backdrop from '../../components/Backdrop/Backdrop';
+import { ErrorModal, MintModal } from '../../components/ui/Modals/Modals';
+import Backdrop from '../../components/ui/Backdrop/Backdrop';
 
 
 const MintPage: React.FC = () => {

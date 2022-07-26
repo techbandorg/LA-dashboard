@@ -1,10 +1,10 @@
 import React from 'react';
 import { Wrapper, Content } from './styles';
-import { NftsCardsProps } from '../../helpers/types';
-import { Title, DefaultLink, Paragraph } from '../../theme';
+import { NftsCardsProps } from '../../../helpers/types';
+import { Title, DefaultLink, Paragraph } from '../../../theme';
 
 
-const NftCard:React.FC<NftsCardsProps> = ({card}) => {
+const Card:React.FC<NftsCardsProps> = ({card}) => {
   const { merchant, transactionHash, nftId } = card
 
   return (
@@ -19,4 +19,4 @@ const NftCard:React.FC<NftsCardsProps> = ({card}) => {
   );
 };
 
-export default NftCard;
+export default Card;

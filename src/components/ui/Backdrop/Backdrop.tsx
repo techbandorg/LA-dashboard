@@ -1,6 +1,6 @@
 import React from 'react';
 import { Wrapper } from './styled';
-import { BackdropProps } from '../../helpers/types';
+import { BackdropProps } from '../../../helpers/types';
 
 
 const Backdrop:React.FC<BackdropProps> = ({children, setIsModalOpen}) => {

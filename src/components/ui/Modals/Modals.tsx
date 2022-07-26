@@ -1,8 +1,8 @@
 import React from 'react';
 import { Wrapper, Content, CrossIcon } from './styles';
-import { Button, Paragraph, Row, Text } from '../../theme';
-import { ErrorModalProps, MintModalProps } from '../../helpers/types';
-import { createUserNft } from '../../helpers/requests';
+import { Button, Paragraph, Row, Text } from '../../../theme';
+import { ErrorModalProps, MintModalProps } from '../../../helpers/types';
+import { createUserNft } from '../../../helpers/requests';
 import { useNavigate } from 'react-router-dom';
 
 
