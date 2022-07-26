@@ -30,11 +30,11 @@ function App() {
 
   const addRedirect = () => {
     if (location?.pathname.includes('mint')) {
-      setMintPath(location?.pathname)
+      return  setMintPath(location?.pathname)
     }
 
     if (location?.pathname.includes('activate')) {
-      setActivatePath(location?.pathname)
+      return  setActivatePath(location?.pathname)
     }
 
     if (!location?.pathname.includes('mint') && !location?.pathname.includes('activate')) {
