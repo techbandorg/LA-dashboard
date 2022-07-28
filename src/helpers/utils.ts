@@ -16,11 +16,13 @@ export const stringTrim = (string: string | null | undefined, maxLength: number)
 
 export const decryptUrlParams = () => {
   // нижнее подчеркивание в ссылке, идентификатор части с зашифрованными данными
-  const decodedStr = decodeURIComponent(window.location.href.split('_*')[1]);
-  const rawStr = AES.decrypt(decodedStr, 'secretPassphrase').toString(enc.Utf8);
+  // const decodedStr = decodeURIComponent(window.location.href.split('_*')[1]);
+  // const rawStr = AES.decrypt(decodedStr.toString(), 'secretPassphrase').toString(enc.Utf8);
+  const decodedStr = window.location.href.split('_*')[1];
+  const rawStr = JSON.parse(AES.decrypt(decodedStr, 'secret').toString(enc.Utf8))
 
   // форматирование зависит от вида зашифрованой строки
-  const replaceSpecial = `{${rawStr.replaceAll('&', ',').replaceAll('=', ':')}}`
+  const replaceSpecial = `{${rawStr.str.replaceAll('&', ',').replaceAll('=', ':')}}`
   const addQuotes = replaceSpecial.replace(/(\w+)/gm, (matchedStr) => {
     return '"' + matchedStr + '"';
   });

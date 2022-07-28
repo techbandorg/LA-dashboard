@@ -1,16 +1,23 @@
 import axios from 'axios';
 import { decryptUrlParams } from './utils';
 
+const baseUrl = 'https://liqiudaccess-backend.herokuapp.com/api'
+
 export const getUserNfts = (account: string) => {
-  return axios.get(`https://liqiudaccess-backend.herokuapp.com/api/mint-nft/user-nft/?userAddress=${account}`)
+  return axios.get(`${baseUrl}/mint-nft/?userAddress=${account}`)
     .then(response => response.data)
 };
 
-export const checkNftExist = () => {
-  const { merchant, userId, subscriptionId } = decryptUrlParams()
+export const getUserMerchantNfts = (account: string) => {
+  const { merchantId } = decryptUrlParams()
+  return axios.get(`${baseUrl}/mint-nft/user-nft/?merchant=Netflix&userAddress=${account}`)
+    .then(response => response.data)
+};
+
+export const checkNftExist = (account: string) => {
+  const { merchantId } = decryptUrlParams()
   return axios.get(
-    `https://liqiudaccess-backend.herokuapp.com/api/mint-nft/user-nft/?userId=${userId}&subscriptionId=${subscriptionId}&merchant=${merchant}`
-    // `https://liqiudaccess-backend.herokuapp.com/api/mint-nft/user-nft/?userId=${73}&subscriptionId=${77}&merchant=${'test'}`
+    `${baseUrl}/nft/?merchantId=${merchantId}&userAddress=${account}`
   ).then(response => response.data)
 };
 
@@ -18,11 +25,12 @@ export const checkNftExist = () => {
 export const createUserNft = (account, setIsMintPending, setIsError, navigate) => {
   const options = Object.assign(decryptUrlParams(), {'userAddress': account});
   setIsMintPending(true)
+  console.log(options);
 
   if (options) {
-    return axios.post('https://liqiudaccess-backend.herokuapp.com/api/mint-nft/create', {...options})
+    return axios.post(`${baseUrl}/mint-nft/create`, {...options})
+
       .then(response => {
-        // window.history.pushState({}, '', 'cards');
         navigate('/dashboard', {replace: true})
         setIsMintPending(false)
       })
@@ -32,8 +40,3 @@ export const createUserNft = (account, setIsMintPending, setIsError, navigate) =
       })
   }
 };
-
-// "merchant": "Migogo",
-//   "userId": 25,
-//   "subscriptionId": 25,
-//   "userAddress": "0x7ff7DAb2f9538613E68ddeAAb823DF55CEB56c42"

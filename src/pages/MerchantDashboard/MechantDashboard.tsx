@@ -1,16 +1,21 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Paragraph } from '../../theme';
 import { Wrapper, CardsContainer } from './styles';
 import Card from '../../components/ui/Card/Card';
+import { getUserMerchantNfts } from '../../helpers/requests';
+import { useWeb3React } from '@web3-react/core';
 
 
 const MerchantDashboard = () => {
+  const { account } = useWeb3React()
   const [isMerchantCard, setIsMerchantCard] = useState(true)
-  const [nftsInfo, setNftsInfo] = useState([{
-    merchant: 'TestMerchant',
-    nftId: 555
-  }]);
+  const [cardsInfo, setCardsInfo] = useState([]);
 
+  useEffect(() => {
+    if (account) getUserMerchantNfts(account).then(response => setCardsInfo(response))
+  }, []);
+
+  console.log(cardsInfo);
 
   return (
     <Wrapper>
@@ -18,7 +23,7 @@ const MerchantDashboard = () => {
           Merchant nft subscriptions
         </Paragraph>
         <CardsContainer>
-          {nftsInfo.map((card: { merchant: string; nftId: number; }, index: number) => (
+          {cardsInfo.map((card: { merchant: string; nftId: number; }, index: number) => (
             <Card key={index} card={card} isMerchantCard={isMerchantCard}/>
           ))}
         </CardsContainer>
