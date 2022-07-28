@@ -15,7 +15,8 @@ const MintPage: React.FC = () => {
   const [isMintPending, setIsMintPending] = useState(false)
 
   useEffect(() => {
-    checkNftExist().then(response => response?.length && setIsNftExists(true));
+    if (account)
+    checkNftExist(account).then(response => response?.length && setIsNftExists(true));
   }, []);
 
   return (
