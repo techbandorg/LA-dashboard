@@ -15,8 +15,8 @@ const MintPage: React.FC = () => {
   const [isMintPending, setIsMintPending] = useState(false)
 
   useEffect(() => {
-    if (account)
-    checkNftExist(account).then(response => response?.length && setIsNftExists(true));
+    if (account) checkNftExist(account).then(response => response?.length && setIsNftExists(true));
+    // if (account) checkNftExist(account).then(response => console.log(response));
   }, []);
 
   return (
@@ -32,7 +32,6 @@ const MintPage: React.FC = () => {
             This wallet <Text color='palegreen' fontWeight='600'>{account}</Text> will receive nft
           </Paragraph>
           <Paragraph margin='0 0 16px 0' fontSize='18px'>Transform subscription to NFT</Paragraph>
-          {/*<Button padding={'6px 24px'} onClick={() => createUserNft(account, setIsMintPending, setIsLinked, setIsError)}>*/}
           <Button padding='6px 24px' onClick={() => setIsMintModal(true)}>
             {isMintPending ? 'Pending...' : 'Mint'}
           </Button>

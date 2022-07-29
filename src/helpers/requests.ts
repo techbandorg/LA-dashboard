@@ -4,7 +4,7 @@ import { decryptUrlParams } from './utils';
 const baseUrl = 'https://liqiudaccess-backend.herokuapp.com/api'
 
 export const getUserNfts = (account: string) => {
-  return axios.get(`${baseUrl}/mint-nft/?userAddress=${account}`)
+  return axios.get(`${baseUrl}/mint-nft/user/?userAddress=${account}`)
     .then(response => response.data)
 };
 
@@ -15,9 +15,9 @@ export const getUserMerchantNfts = (account: string) => {
 };
 
 export const checkNftExist = (account: string) => {
-  const { merchantId } = decryptUrlParams()
+  const { userId } = decryptUrlParams()
   return axios.get(
-    `${baseUrl}/nft/?merchantId=${merchantId}&userAddress=${account}`
+    `${baseUrl}/mint-nft/user/?userId=${userId}&userAddress=${account}`
   ).then(response => response.data)
 };
 
@@ -25,11 +25,9 @@ export const checkNftExist = (account: string) => {
 export const createUserNft = (account, setIsMintPending, setIsError, navigate) => {
   const options = Object.assign(decryptUrlParams(), {'userAddress': account});
   setIsMintPending(true)
-  console.log(options);
 
   if (options) {
     return axios.post(`${baseUrl}/mint-nft/create`, {...options})
-
       .then(response => {
         navigate('/dashboard', {replace: true})
         setIsMintPending(false)
